@@ -5,9 +5,7 @@ const {
     getSingleUser,
     createUser,
     updateUser,
-    deleteUser,
-    addFriend,
-    deleteFriend
+    deleteUser
 } = require('../../controllers/userController');
 
 //GET all and POST 
