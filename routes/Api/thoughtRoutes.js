@@ -12,7 +12,7 @@ const {
 } = require('../../controllers/thoughtController');
 
 
-route('/').get(getThought).post(createThought)
+router.route('/').get(getThought).post(createThought)
 
 
 router.route('/:thoughtId')
