@@ -30,7 +30,7 @@ const userController = {
 
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'There is no user with that ID' })
+                    res.status(404).json({ message: ' no user found with that ID' })
                     return
                 }
                 res.json(dbUserData);
@@ -54,7 +54,7 @@ const userController = {
         User.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'There is no user with that ID' });
+                    res.status(404).json({ message: '  no user found  with that ID' });
                     return;
                 }
                 res.json(dbUserData);
@@ -65,7 +65,7 @@ const userController = {
         User.findOneAndDelete({ _id: params.id })
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'There is no user with that ID' });
+                    res.status(404).json({ message: ' no user found with that ID' });
                     return;
                 }
                 res.json(dbUserData);
@@ -85,5 +85,5 @@ const userController = {
 module.exports= userController;
 
 
-    updateUser
-    deleteUser
+    // updateUser
+    // deleteUser

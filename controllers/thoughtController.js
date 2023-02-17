@@ -128,4 +128,4 @@ module.exports = thoughtController;
 
 
 
-deleteReaction
+// deleteReaction
