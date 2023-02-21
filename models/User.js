@@ -26,7 +26,7 @@ const UserSchema = new Schema({
         }
     ],
     friends:
-        //     ///have to figure out
+  
         [
             {
                 type: Schema.Types.ObjectId,
