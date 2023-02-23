@@ -51,7 +51,6 @@ const userController = {
 
     },
     updateUser({ params, body }, res) {
-        console.log(JSON.stringify(params));
         User.findOneAndUpdate({ _id: params.userId }, body, { new: true, runValidators: true })
             .then(dbUserData => {
                 if (!dbUserData) {

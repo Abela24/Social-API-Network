@@ -19,7 +19,7 @@ const thoughtController = {
     },
 
     getSingleThought({params}, res){
-        Thought.findOne({ _id: params.id })
+        Thought.findOne({ _id: params.userId })
 
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
@@ -58,7 +58,7 @@ const thoughtController = {
 
     },
     updateThought({ params, body }, res) {
-        Thought.findOneAndUpdate({ _id: params.id }, body, {
+        Thought.findOneAndUpdate({ _id: params.thoughtId }, body, {
             new: true,
             runValidators: true,
         })
@@ -72,7 +72,7 @@ const thoughtController = {
             .catch(err => res.status(400).json(err));
     },
     deleteThought({ params }, res) {
-        Thought.findOneAndDelete({ _id: params.id })
+        Thought.findOneAndDelete({ _id: params.userId })
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
                     res.status(404).json({ message: 'There is no thought with this ID' });
@@ -105,7 +105,7 @@ const thoughtController = {
     deleteReaction({ params }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
-            { $pull: { reactions: { reactionId: params.id } } },
+            { $pull: { reactions: { reactionId: params.userId } } },
             { new: true }
         )
             .then(dbThoughtData => {
