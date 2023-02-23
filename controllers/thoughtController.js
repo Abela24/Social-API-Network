@@ -17,7 +17,7 @@ const thoughtController = {
             });
 
     },
-
+//getting one single thoughts
     getSingleThought({params}, res){
         Thought.findOne({ _id: params.userId })
 
@@ -34,6 +34,7 @@ const thoughtController = {
             });
 
     },
+    //function to create thoughts
     createThought({params, body}, res){
         const newThought = {
             thoughtText: body.thoughtText,
@@ -57,6 +58,7 @@ const thoughtController = {
             .catch(err => res.status(400).json(err));
 
     },
+    //function to updatethoughts
     updateThought({ params, body }, res) {
         Thought.findOneAndUpdate({ _id: params.thoughtId }, body, {
             new: true,
@@ -71,6 +73,7 @@ const thoughtController = {
             })
             .catch(err => res.status(400).json(err));
     },
+    //function for delete thoughts
     deleteThought({ params }, res) {
         Thought.findOneAndDelete({ _id: params.userId })
             .then(dbThoughtData => {
